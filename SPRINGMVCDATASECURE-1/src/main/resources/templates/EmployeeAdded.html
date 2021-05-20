@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" 
+href="../static/css/style.css"
+th:href="@{css/style.css}"
+ />
+<title>Insert new Employee</title>
+</head>
+<body>
+
+<br /><br /><br />
+<center>
+<div class="card col-md-8">
+  <div class="card-header">
+    Employee <label th:text=${employee.nameEmployee}></label> added !
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    
+    Employee added sucssessfuly.<br />
+    <label>Name :</label>
+    <label th:text=${employee.nameEmployee}></label><br />
+    
+     <label>Nationality :</label>
+    <label th:text=${employee.nationalityEmployee}></label><br />
+    
+    <label>Age :</label>
+    <label th:text=${employee.ageEmployee}></label><br />
+    
+    <a class="btn btn-secondary btn-sm" th:href="@{/user/index}">Back to the list of employees</a>
+    
+   
+  </div>
+</div>
+</center>
+	
+</body>
+</html>

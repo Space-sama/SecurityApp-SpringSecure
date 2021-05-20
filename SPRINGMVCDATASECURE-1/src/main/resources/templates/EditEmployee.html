@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" 
+href="../static/css/style.css"
+th:href="@{css/style.css}"
+ />
+<title>Insert new Employee</title>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" th:href="@{/user/index}">E-Users</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" th:href="@{/user/index}">All Users <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  th:href="@{/admin/addEmployee}">Add new employee</a>
+      </li>
+      
+      <li class="nav-item">
+      <span th:inline="text"></span>
+        <a class="nav-link" th:href="@{/login?logout}"> Logout</a>
+      </li>
+      
+    </ul>
+    
+  </div>
+</nav>
+
+<br /><br /><br />
+<center>
+<div class="card col-md-8">
+  <div class="card-header">
+    Update employee now !
+  </div>
+  
+  
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    
+    <form  th:action="@{/admin/Insert}" method="post">
+    
+    
+    <div class="form-group col-md-6" >
+    	
+    		<input class="form-control"  type="text" readonly="readonly" name="idEmployee" th:value="${emp.idEmployee}"  placeholder="your name ?"  /><br />
+    		
+    		 
+    	</div>
+    	<div class="form-group col-md-6" >
+    	
+    		<input class="form-control"  type="text" name="nameEmployee"
+    		  placeholder="your name ?" th:value="${emp.nameEmployee}"   /><br />
+    		
+    		 
+    	</div>
+    	
+    	<div class="form-group col-md-6">
+    		<input class="form-control" type="text"  placeholder="your nationality ?
+    		" name="nationalityEmployee" th:value="${emp.nationalityEmployee}" />
+    		 <br />
+    		 
+    	</div>
+    	
+    	<div class="form-group col-md-6">
+    		<input class="form-control" type="number"  placeholder="your age ?"
+    		 name="ageEmployee" th:value="${emp.ageEmployee}"/>
+    		
+    	</div>
+    	
+    	<div class="form-group">
+    		<button class="btn btn-primary btn-sm">Edit employee</button>
+    		<a class="btn btn-warning btn-sm" type="button" th:href="@{/user/index}">Back to the list</a>
+    	</div>
+    
+    </form>
+    
+   
+  </div>
+</div>
+</center>
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+</body>
+</html>

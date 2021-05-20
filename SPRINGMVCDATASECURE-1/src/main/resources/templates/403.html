@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" 
+href="../static/css/style.css"
+th:href="@{css/style.css}"
+ />
+<title>Insert title here</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" th:href="@{/user/index}">E-Users</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" th:href="@{/user/index}">All Users <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/login?logout}" th:inline="text">[[${#httpServletRequest.remoteUser}]]</a>
+      </li>
+       <li class="nav-item">
+      <span th:inline="text"></span>
+        <a class="nav-link" th:href="@{/login?logout}"> Logout</a>
+      </li>
+      
+    </ul>
+    
+  </div>
+</nav>
+<br /><br /><br />
+<center>
+	
+		<h3 style="color:red">You can't do this, you don't have privilleges of Administrators !</h3>
+
+</center>
+</body>
+</html>

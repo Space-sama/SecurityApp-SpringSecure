@@ -1,0 +1,46 @@
+.th{
+	background-color: gray;
+}
+
+
+.em{
+	background-color: #CAD5CA;
+}
+
+th{
+	vertical-align: middle;
+}
+
+.Aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.pathD:link{
+	text-decoration: none;
+}
+
+.pathD:link:hover{
+	color: red;
+	font-size:14px;
+	font-weight: 700;
+}
+
+.error{
+	color: red;
+}
+
+
+
+.pathE:link{
+	text-decoration: none;
+}
+
+.pathE:link:hover{
+	color: orange;
+	font-size:14px;
+	font-weight: 700;
+}
+

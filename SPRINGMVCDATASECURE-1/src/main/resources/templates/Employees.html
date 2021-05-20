@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+layout:decorator="layout">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" 
+href="../static/css/style.css"
+th:href="@{css/style.css}"
+ />
+<title>Employees</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" th:href="@{/user/index}">E-Users</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" th:href="@{/user/index}">All Users <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  th:href="@{/admin/addEmployee}">Add new employee</a>
+      </li>
+      
+      <li class="nav-item">
+      <span th:inline="text"></span>
+        <a class="nav-link" th:href="@{/login?logout}"> Logout</a>
+      </li>
+      
+    </ul>
+    
+  </div>
+</nav>
+
+
+	<h1 class="col-md-12 text-center">Employees</h1><br /><br /><br />
+	
+	
+<div class="container">
+	<form th:action="@{/user/index}" method="get">
+		<div>
+		<input class="input-sm" type="text" th:value="${Key}" placeholder="KeyWord ?" name="key"/>
+		<button class="btn btn-outline-success btn-sm">Search</button>
+		<a th:href="@{/admin/addEmployee}" type="button" class="btn btn-primary btn-sm">Add an employee</a>
+		</div>
+	</form>
+</div><br />
+
+
+<div class="container">
+	<table border="1.5" class="table">
+		<thead class="th">
+			<tr>
+				<th>ID</th> <th>Name</th> <th>Nationality</th> <th>Age</th>
+				
+			</tr>
+		
+		</thead>
+		
+		<tbody>
+		
+			<tr th:each="employee:${ListOfEmployees}">
+				<th class="em" th:text="${employee.idEmployee}"></th>
+				<th class="em" th:text="${employee.nameEmployee}"></th>
+				<th class="em" th:text="${employee.nationalityEmployee}"></th>
+				<th class="em" th:text="${employee.ageEmployee}"></th>
+				<th><a onclick="return confirm('You really want to delete this employee ?')" class="pathD" th:href="@{/admin/deleteEmployee(id=${employee.idEmployee}, page=${CurrentPage}, size=${Size}, key=${Key})}">🗑️ Delete employee</a></th>
+				<th><a class="pathE" th:href="@{/admin/Edit(idE=${employee.idEmployee})}">✏️ Edit employee</a></th>
+			
+			</tr>
+		</tbody>
+	
+	</table>
+	</div>
+	
+	<br />
+	
+		
+		<div class="container">
+			<ul class="nav nav-pills">
+		  	<li th:class="${CurrentPage}==${status.index}?'active':''" th:each="page,status:${AllPages}">
+		    <a class="nav-link" th:href="@{/user/index(page=${status.index}, size=${Size}, key=${Key})}"  th:text="${status.index}"></a>
+		  </li>
+		</ul> 
+		
+		</div>
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+</body>
+</html>
